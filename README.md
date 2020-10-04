@@ -17,22 +17,22 @@ This is a static data of XML type which is loaded only once.
 This data represents what customers doing right now. It is a JSON data which is pulled from web service via NIFI and pushed to Kafka topic which is then consumed every 10 sec. 
 
 Current Code Flow (will Optimize later):
-1.Imported necessary libraries in POM.xml and imported in project.
-2.Initialized spark Session, spark Context and logger level.
-3.Loaded the static XML data and converted to Data Frame using databricks library.
-4.Created StructType Schema for weblog data.
-5.Loaded the weblog csv file as rdd using sc.textFile and converted to row rdd and then created dataframe using createDataFrame method to enforce null type validation.
-6.Method is created to load customer profile data from DB using spark jdbc option.
-7.Created a new ConstantInputDStream which always returns the same mandatory input RDD at every batch time. This is used to pull data from RDMS in a streaming fashion. In this stream we are doing the dynamic lookup by calling method to load data from DB every one minute and caching the result in memory.
-8.Performed joining of all the 3 dataframes in a final DF to aggregate the results and store it in ElasticSearch index.
-9.Visualization is created in Kibana from the ES index.
-10.Final DF is streamed to output Kafka Topic.
+1. Imported necessary libraries in POM.xml and imported in project.
+2. Initialized spark Session, spark Context and logger level.
+3. Loaded the static XML data and converted to Data Frame using databricks library.
+4. Created StructType Schema for weblog data.
+5. Loaded the weblog csv file as rdd using sc.textFile and converted to row rdd and then created dataframe using createDataFrame method to enforce null type validation.
+6. Method is created to load customer profile data from DB using spark jdbc option.
+7. Created a new ConstantInputDStream which always returns the same mandatory input RDD at every batch time. This is used to pull data from RDMS in a streaming fashion. In this stream we are doing the dynamic lookup by calling method to load data from DB every one minute and caching the result in memory.
+8. Performed joining of all the 3 dataframes in a final DF to aggregate the results and store it in ElasticSearch index.
+9. Visualization is created in Kibana from the ES index.
+10. Final DF is streamed to output Kafka Topic.
 
 Functionality Achieved:
-Unification, 
-Federation, 
-Lambda,
-SCD-1
+- Unification 
+- Federation 
+- Lambda
+- SCD-1
 
 ![alt text](https://iili.io/2W82TP.jpg)
 
