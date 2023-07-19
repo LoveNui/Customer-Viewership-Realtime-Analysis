@@ -43,6 +43,7 @@ object ViewershipAnalytics {
     //val xmldata =sc.textFile("file:///home/hduser/install/usjon/USJSON_PROJECT_CONTENT/http_status.xml")
 
     println("xml data")
+    println("xml data")
 
     val dfxml = spark.read
       .format("com.databricks.spark.xml")
