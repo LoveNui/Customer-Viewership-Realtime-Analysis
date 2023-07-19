@@ -10,11 +10,12 @@ This a dimension data of SCD1 type stored in Oracle DB. Type of data is structur
 2.Weblog Events of Customers:
 This data is loaded by some other system into the linux landing pad. It is a growing, historical data of CSV type. This data is loaded once in a day.
 
+
 3.HTTP Status Codes:
 This is a static data of XML type which is loaded only once.
 
 4.Customer Web Events:
-This data represents what customers doing right now. It is a JSON data which is pulled from web service via NIFI and pushed to Kafka topic which is then consumed every 10 sec. 
+This data represents what customers doing right now. It is a json data which is pulled from web service via NIFI and pushed to Kafka topic which is then consumed every 10 sec. 
 
 Current Code Flow (will Optimize later):
 1. Imported necessary libraries in POM.xml and imported in project.
